@@ -2,11 +2,6 @@ body {
   background-color: pink !important;
 }
 
-
-.content-color {
-  color: pink;
-}
-
 button {
   color: white;
   background-color: pink;
@@ -16,4 +11,33 @@ button {
 
 button:focus {
   border:none;
+}
+
+.content-color {
+  color: pink;
+}
+
+#content-box{
+  width:500px;
+}
+
+#quote-box{
+  border-radius: 3px; padding:40px; margin:40px;
+}
+
+#quote{
+  font-size: 20px;
+}
+
+#icon-quote{
+  margin-right: 6px;
+}
+
+#icon-social{
+  font-size:
+}
+
+#author{
+  font-size: 11px;
+  margin-top: 15px;
 }
