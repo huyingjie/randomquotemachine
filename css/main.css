@@ -41,3 +41,11 @@ button:focus {
   font-size: 11px;
   margin-top: 15px;
 }
+
+#author a {
+  color: pink;
+  background-color: white;
+}
+#author a:hover {
+  color: red;
+}
