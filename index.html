@@ -12,8 +12,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 
+<script>
+  $(document).ready(function() {
+
+
+    $.getJSON("ChineseSaying.json", function(json){
+      var nOfSayings = Object.keys(json).length;
+      //console.log(Object.keys(json).length);
+      var id = Math.floor(Math.random() * nOfSayings);
+      //console.log(id);
+      //console.log(json[0]["saying"]);
+      $("#quote").html("new message");
+      });
+
+    $("#newquote").on("click", function(){
+
+      });
+
+  });
+</script>
 
 </head>
 <body">
@@ -27,7 +47,7 @@
          <i class="fab fa-facebook fa-1x"></i>
        </div>
        <div class="col-4">
-         <button type="button"> New quote</button>
+         <button type="button" id="newquote"> New quote</button>
        </div>
      </div>
    </div>
