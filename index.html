@@ -16,50 +16,63 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 
   <script>
+
   $(document).ready(function() {
 
-
-
-
-    $("#newquote").on("click", function(){
-      $.getJSON("ChineseSaying.json", function(json){
+    function randomContents(){
+      $.getJSON("json/color.json", function(color){
+        var nOfColors = Object.keys(color).length;
+        var id = Math.floor(Math.random() * nOfColors);
+        console.log(color[id]);
+        $(".content-color").css("color", color[id]);
+        $(".background").css("background-color", color[id]);
+      });
+      $.getJSON("json/ChineseSaying.json", function(json){
         var nOfSayings = Object.keys(json).length;
         //console.log(Object.keys(json).length);
         var id = Math.floor(Math.random() * nOfSayings);
         //console.log(id);
         //console.log(json[id]["author"]);
         $("#quote").html(json[id]["saying"]+"<br><center>"+json[id]["chinese"]+"</center>");
-        $("#author").html(json[id]["author"]);
+        $("#quoteauthor").html(json[id]["author"]);
       });
+    }
+
+    randomContents();
+
+
+    $("#newquote").on("click", function(){
+      randomContents();
     });
   });
 </script>
 
 </head>
-<body">
+<body class="background">
 <div class="container" id="content-box">
   <div class="container bg-light content-color" id="quote-box">
     <div class="container"><i class="fas fa-quote-left" id="icon-quote"></i>
       <span id="quote">
-        Tell me and I’ll forget; show me and I may remember; involve me and I’ll understand.
+
         <br>
-        <center>不闻不若闻之，闻之不若见之，见之不若知之，知之不若行之；学至于行之而止矣</center>
+        <center></center>
       </span>
     </div>
-    <div class="text-right" >- <span id="author">荀子 (316 BC? - 237 BC?)</span></div>
+    <div class="text-right" ><br>- <span id="quoteauthor"></span></div>
     <div class="row justify-content-between" style="margin-top:10px">
       <div class="col-4 content-color" style="font-size:24px;">
         <i class="fab fa-twitter-square"></i>
         <i class="fab fa-facebook fa-1x"></i>
       </div>
       <div class="col-4">
-        <button type="button" id="newquote"> New quote</button>
+        <button type="button" id="newquote" class="background"> New quote</button>
       </div>
     </div>
   </div>
   <div class="container text-center text-light font-weight-bold footer" id="author">
-    Written and Coded By <a href="http://yingjiehu.com" target="_blank">Yingjie Hu</a> with <span style="color:red"><i class="fas fa-heart"></i></span><br>
-    View <a href="https://github.com/huyingjie/randomquotemachine" target="_blank">source code</a> at GitHub and latest <a href="http://randomquotemachine.yingjiehu.com/" target="_blank">updated website</a>
+    Written and Coded By <a href="http://yingjiehu.com" target="_blank" class="content-color">Yingjie Hu</a> with <span class="content-color"><i class="fas fa-heart"></i></span><br>
+    View <a href="https://github.com/huyingjie/randomquotemachine" target="_blank" class="content-color">source code</a> at GitHub and latest
+    <a href="http://randomquotemachine.yingjiehu.com/" target="_blank" class="content-color">updated website</a>
   </div>
 </body>
 </html>

@@ -1,7 +1,3 @@
-body {
-  background-color: pink !important;
-}
-
 button {
   color: white;
   background-color: pink;
@@ -13,10 +9,6 @@ button:focus {
   border:none;
 }
 
-.content-color {
-  color: pink;
-}
-
 #content-box{
   width:500px;
 }
@@ -26,7 +18,7 @@ button:focus {
 }
 
 #quote{
-  font-size: 20px;
+  font-size: 24px;
 }
 
 #icon-quote{
@@ -37,15 +29,12 @@ button:focus {
   font-size:
 }
 
+
 #author{
-  font-size: 12px;
+  font-size: 11px;
   margin-top: 15px;
 }
 
 #author a {
-  color: pink;
   background-color: white;
-}
-#author a:hover {
-  color: red;
 }
