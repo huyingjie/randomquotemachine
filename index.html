@@ -35,6 +35,15 @@
         //console.log(json[id]["author"]);
         $("#quote").html(json[id]["saying"]+"<br><center>"+json[id]["chinese"]+"</center>");
         $("#quoteauthor").html(json[id]["author"]);
+
+        var twitterSocialQuote = "http://twitter.com/intent/tweet?text=";
+        twitterSocialQuote =  twitterSocialQuote + "\""+json[id]["saying"] + "-" + json[id]["author"] + "\"&hashtags=quotes";
+        //console.log(twitterSocialQuote);
+        $("#twitter").attr("href", twitterSocialQuote);
+
+        var tumblrSocalQuote = "https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption=Network&content="
+        $("#tumblr").attr("href", tumblrSocalQuote)
+        //https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption=Network&content=I%27m%20as%20mad%20as%20hell%2C%20and%20I%27m%20not%20going%20to%20take%20this%20anymore!&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button
       });
     }
 
@@ -47,11 +56,12 @@
   });
 </script>
 
+
 </head>
 <body class="background">
 <div class="container" id="content-box">
   <div class="container bg-light content-color" id="quote-box">
-    <div class="container"><i class="fas fa-quote-left" id="icon-quote"></i>
+    <div class="container" style="font-size:34px"><i class="fas fa-quote-left" id="icon-quote"></i>
       <span id="quote">
 
         <br>
@@ -61,15 +71,25 @@
     <div class="text-right" ><br>- <span id="quoteauthor"></span></div>
     <div class="row justify-content-between" style="margin-top:10px">
       <div class="col-4 content-color" style="font-size:24px;">
-        <i class="fab fa-twitter-square"></i>
-        <i class="fab fa-facebook fa-1x"></i>
+        <a id="twitter"
+          href="http://twitter.com/share?text=test&hashtags=quotes"
+          target="_blank"
+          class="content-color">
+          <i class="fab fa-twitter-square"></i>
+        </a>
+        <a id="tumblr"
+          class="content-color"
+          target="_blank">
+          <i class="fab fa-tumblr-square"></i>
+        </a>
       </div>
       <div class="col-4">
         <button type="button" id="newquote" class="background"> New quote</button>
       </div>
     </div>
   </div>
-  <div class="container text-center text-light font-weight-bold footer" id="author">
+
+<div class="container text-center text-light font-weight-bold footer" id="author">
     Written and Coded By <a href="http://yingjiehu.com" target="_blank" class="content-color">Yingjie Hu</a> with <span class="content-color"><i class="fas fa-heart"></i></span><br>
     View <a href="https://github.com/huyingjie/randomquotemachine" target="_blank" class="content-color">source code</a> at GitHub and latest
     <a href="http://randomquotemachine.yingjiehu.com/" target="_blank" class="content-color">updated website</a>
