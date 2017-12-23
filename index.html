@@ -33,18 +33,17 @@
         var id = Math.floor(Math.random() * nOfSayings);
         //console.log(id);
         //console.log(json[id]["author"]);
-        $("#quote").html(json[id]["saying"]+"<br><center>"+json[id]["chinese"]+"</center>");
-        $("#quoteauthor").html(json[id]["author"]);
+        $("#quote").html(json[id]["saying"]+"<br><center>"+json[id]["chinese"]+"</center>").slideUp( 500 ).delay( 1000 ).fadeIn( 2000 );
+        $("#quoteauthor").html("- "+json[id]["author"]).slideUp( 500 ).delay( 1000 ).fadeIn( 2000 );
 
         var twitterSocialQuote = "http://twitter.com/intent/tweet?text=";
         twitterSocialQuote =  twitterSocialQuote + "\""+json[id]["saying"] + "-" + json[id]["author"] + "\"&hashtags=quotes";
         //console.log(twitterSocialQuote);
         $("#twitter").attr("href", twitterSocialQuote);
 
-        var tumblrSocalQuote = "https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption=Network&content="
+        var tumblrSocalQuote = "https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes&caption=" + json[id]["author"] +"&content="+json[id]["saying"]+"&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button"
         $("#tumblr").attr("href", tumblrSocalQuote)
-        //https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption=Network&content=I%27m%20as%20mad%20as%20hell%2C%20and%20I%27m%20not%20going%20to%20take%20this%20anymore!&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button
-      });
+        });
     }
 
     randomContents();
@@ -56,19 +55,15 @@
   });
 </script>
 
-
 </head>
 <body class="background">
 <div class="container" id="content-box">
   <div class="container bg-light content-color" id="quote-box">
-    <div class="container" style="font-size:34px"><i class="fas fa-quote-left" id="icon-quote"></i>
+    <div class="container text-center" style="font-size:34px"><i class="fas fa-quote-left" id="icon-quote"></i>
       <span id="quote">
-
-        <br>
-        <center></center>
       </span>
     </div>
-    <div class="text-right" ><br>- <span id="quoteauthor"></span></div>
+    <div class="text-right" ><br><span id="quoteauthor"></span></div>
     <div class="row justify-content-between" style="margin-top:10px">
       <div class="col-4 content-color" style="font-size:24px;">
         <a id="twitter"
@@ -78,6 +73,7 @@
           <i class="fab fa-twitter-square"></i>
         </a>
         <a id="tumblr"
+          href=""
           class="content-color"
           target="_blank">
           <i class="fab fa-tumblr-square"></i>
