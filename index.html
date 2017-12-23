@@ -34,10 +34,11 @@
         //console.log(id);
         //console.log(json[id]["author"]);
         $("#quote").hide();
+        $("#quoteauthor").hide();
         $("#quote").html(String(json[id]["saying"])+"<br>"+json[id]["chinese"]+"")
 
         $("#quoteauthor").html("- "+json[id]["author"])
-        $("#quote,#quoteauthor").fadeIn(500);
+        $("#quote,#quoteauthor").delay(800).fadeIn(1000);
 
         var twitterSocialQuote = "http://twitter.com/intent/tweet?text=";
         twitterSocialQuote =  twitterSocialQuote + "\""+encodeURIComponent(json[id]["saying"]) + "-" + encodeURIComponent(json[id]["author"]) + "\"&hashtags=quotes";
