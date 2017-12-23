@@ -14,85 +14,43 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  <script src="script/main.js"></script>
 
-  <script>
-
-  $(document).ready(function() {
-
-    function randomContents(){
-      $.getJSON("json/color.json", function(color){
-        var nOfColors = Object.keys(color).length;
-        var id = Math.floor(Math.random() * nOfColors);
-        console.log(color[id]);
-        $(".content-color").css("color", color[id]);
-        $(".background").css("background-color", color[id]);
-      });
-      $.getJSON("json/ChineseSaying.json", function(json){
-        var nOfSayings = Object.keys(json).length;
-        //console.log(Object.keys(json).length);
-        var id = Math.floor(Math.random() * nOfSayings);
-        //console.log(id);
-        //console.log(json[id]["author"]);
-        $("#quote").hide();
-        $("#quoteauthor").hide();
-        $("#quote").html(String(json[id]["saying"])+"<br>"+json[id]["chinese"]+"")
-
-        $("#quoteauthor").html("- "+json[id]["author"])
-        $("#quote,#quoteauthor").delay(800).fadeIn(1000);
-
-        var twitterSocialQuote = "http://twitter.com/intent/tweet?text=";
-        twitterSocialQuote =  twitterSocialQuote + "\""+encodeURIComponent(json[id]["saying"]) + "-" + encodeURIComponent(json[id]["author"]) + "\"&hashtags=quotes";
-        //console.log(twitterSocialQuote);
-        $("#twitter").attr("href", twitterSocialQuote);
-
-        var tumblrSocalQuote = "https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes&caption=" + encodeURIComponent(json[id]["author"]) +"&content="+encodeURIComponent(json[id]["saying"])+"&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button"
-        $("#tumblr").attr("href", tumblrSocalQuote)
-        });
-    }
-
-    randomContents();
-
-
-    $("#newquote").on("click", function(){
-      randomContents();
-    });
-  });
-</script>
 
 </head>
 <body class="background">
-<div class="container" id="content-box">
-  <div class="container bg-light content-color" id="quote-box">
-    <div class="container text-center" style="font-size:34px"><i class="fas fa-quote-left" id="icon-quote"></i>
-      <span id="quote">
-      </span>
-    </div>
-    <div class="text-right" ><br><span id="quoteauthor"></span></div>
-    <div class="row justify-content-between" style="margin-top:10px">
-      <div class="col-4 content-color" style="font-size:24px;">
-        <a id="twitter"
+  <div class="container" id="content-box">
+    <div class="container bg-light content-color" id="quote-box">
+      <div class="container text-center" style="font-size:34px"><i class="fas fa-quote-left" id="icon-quote"></i>
+        <span id="quote">
+        </span>
+      </div>
+      <div class="text-right" ><br><span id="quoteauthor"></span></div>
+      <div class="row justify-content-between" style="margin-top:10px">
+        <div class="col-4 content-color" style="font-size:24px;">
+          <a id="twitter"
           href="http://twitter.com/share?text=test&hashtags=quotes"
           target="_blank"
           class="content-color">
           <i class="fab fa-twitter-square"></i>
         </a>
         <a id="tumblr"
-          href=""
-          class="content-color"
-          target="_blank">
-          <i class="fab fa-tumblr-square"></i>
-        </a>
-      </div>
-      <div class="col-4">
-        <button type="button" id="newquote" class="background"> New quote</button>
-      </div>
+        href=""
+        class="content-color"
+        target="_blank">
+        <i class="fab fa-tumblr-square"></i>
+      </a>
+    </div>
+    <div class="col-4">
+      <button type="button" id="newquote" class="background"> New quote</button>
     </div>
   </div>
+</div>
+<div class="container text-center text-light font-weight-bold" id="footer">
+  Written and Coded By <a href="http://yingjiehu.com" target="_blank" class="content-color">Yingjie Hu</a> with <span class="content-color"><i class="fas fa-heart"></i></span><br>
+  View <a href="https://github.com/huyingjie/randomquotemachine" target="_blank" class="content-color">source code</a> at GitHub and latest
+  <a href="http://randomquotemachine.yingjiehu.com/" target="_blank" class="content-color">updated website</a>
+</div>
 
-<div class="container text-center text-light font-weight-bold footer" id="author">
-    Written and Coded By <a href="http://yingjiehu.com" target="_blank" class="content-color">Yingjie Hu</a> with <span class="content-color"><i class="fas fa-heart"></i></span><br>
-    View <a href="https://github.com/huyingjie/randomquotemachine" target="_blank" class="content-color">source code</a> at GitHub and latest
-    <a href="http://randomquotemachine.yingjiehu.com/" target="_blank" class="content-color">updated website</a>
-  </div>
 </body>
 </html>

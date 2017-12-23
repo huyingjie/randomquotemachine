@@ -29,11 +29,11 @@ button:focus {
 }
 
 
-#author{
+#footer{
   font-size: 11px;
-  margin-top: 15px;
+
 }
 
-#author a {
+#footer a {
   background-color: white;
 }
